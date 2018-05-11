@@ -7,4 +7,7 @@ class Partida(object):
 		self.timeVisitante = timeVisitante
 		self.golsTimeVisitante = golsTimeVisitante
 		self.rodada = rodada
-		self.data = data
+		data_dividida = data.split("/")
+		self.ano = int(data_dividida[2])
+		self.mes = int(data_dividida[1])
+		self.dia = int(data_dividida[0])
