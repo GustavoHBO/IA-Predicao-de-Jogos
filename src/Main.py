@@ -16,17 +16,17 @@ class Main(object):
 		super(Main, self).__init__()
 
 		caminhoBaseDados = "./base_de_dados/"
-		self.carregar_arquivo(caminhoBaseDados)
+		ano_base = 2003 
+		qtn_anos = 15
+		self.carregar_arquivo(caminhoBaseDados, ano_base, qtn_anos)
 		
-		time = self.buscar_time_nome("Fluminense")
-		lista = self.buscar_partidas_ano(self.listaPartidas, 2010)
-		lista = self.buscar_partidas_time(lista, time.id, 2)
+		time = self.buscar_time_nome("São Paulo")
+		lista = self.buscar_partidas_ano(self.listaPartidas, 2017)
+		lista = self.buscar_partidas_time(lista, time.id, 0)
 
 		self.exibir_partidas(lista)
 
-	def carregar_arquivo(self, caminho_base_dados):
-		ano_base = 2003
-		qtn_anos = 15
+	def carregar_arquivo(self, caminho_base_dados, ano_base, qtn_anos):
 		for ano in range(ano_base, ano_base+qtn_anos):
 			nome_arquivo = caminho_base_dados + str(ano) + "[formated].txt"
 			arquivo = open(nome_arquivo, "r")
@@ -110,6 +110,5 @@ class Main(object):
 			if partida.time_visitante == id_time:
 				lista.append(partida.golsTimeVisitante)
 		return lista
-
 
 executar = Main()
